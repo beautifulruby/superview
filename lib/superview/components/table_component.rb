@@ -20,7 +20,7 @@ module Superview::Components
   # end
   # ```
 
-  class TableComponent < ApplicationComponent
+  class TableComponent < Phlex::HTML
     if Phlex.const_defined?(:DeferredRender)
       # Phlex 1.0
       include Phlex::DeferredRender

@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   before_action :load_post
 
-  class Show < ApplicationComponent
+  class Show < Components::Base
     attr_accessor :post
 
     def view_template(&)
@@ -78,7 +78,7 @@ class PostsController < ApplicationController
 
   before_action :load_post
 
-  class Show < ApplicationComponent
+  class Show < Components::Base
     attr_accessor :post
 
     def view_template(&)
@@ -120,7 +120,7 @@ class PostsController < ApplicationController
 
   # Your code...
 
-  class Show < ApplicationComponent
+  class Show < Components::Base
     attr_accessor :post
 
     def view_template(&)
@@ -186,7 +186,7 @@ First let's extract the `Show` class into `./app/views/posts/show.rb`
 ```ruby
 # ./app/views/posts/show.rb
 module Posts
-  class Show < ApplicationComponent
+  class Show < Components::Base
     attr_accessor :post
 
     def view_template(&)

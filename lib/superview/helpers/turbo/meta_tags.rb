@@ -2,7 +2,7 @@ module Superview
   module Helpers
     module Turbo
       # Renders the metatags for setting up Turbo Drive.
-      class MetaTags < ApplicationComponent
+      class MetaTags < Phlex::HTML
         attr_accessor \
           :method,
           :scroll,

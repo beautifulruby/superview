@@ -13,7 +13,7 @@ module Superview
   #
   #   before_action :load_post
   #
-  #   class Show < ApplicationComponent
+  #   class Show < Phlex::HTML
   #     attr_accessor :post
   #
   #     def view_template(&)
