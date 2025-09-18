@@ -90,9 +90,18 @@ module Superview
     # If it resolves a Phlex class in the controller, it will render that. If it's
     # not found it continues with Rails method of resolving action names.
     def method_for_action(action_name)
-      super || if component_action_exists? action_name
-                 "default_component_render"
-               end
+      # Yep. `super` calls this, but we have to call it here to cover the
+      # situation where the person uas a `./app/views/users/*.rb` file with a Ruby
+      # class in it that might be included in the controller via `include Views::Users`.
+      # If we call super first, it will tink that `./app/views/users/show.rb` is a template
+      # and raise an error that it doesn't have a format.
+      if action_method?(action_name)
+        action_name
+      elsif component_action_exists? action_name
+        "default_component_render"
+      else
+        super
+      end
     end
 
     # Renders a Phlex view for the given action, if it's present.
