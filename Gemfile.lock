@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    superview (1.0.0)
+    superview (1.0.1)
       zeitwerk (~> 2.0)
 
 GEM
